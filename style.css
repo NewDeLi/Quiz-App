@@ -1,50 +1,97 @@
-body{
-    color: white;
-    font-size: 18px;
-    font-family: 'Fredoka One', cursive;
+body {
+  color: white;
+  font-size: 18px;
+  font-family: "Fredoka One", cursive;
+  background-color: rgba(252, 245, 110, 0.11)
 }
-a{
-    color: white;
+a {
+  color: white;
 }
 /*header*/
-header{
-    background-color: limegreen;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 5px;
-    text-align: center;
+header {
+  background-color: limegreen;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  text-align: center;
 }
-header h1{
-    padding: 5px ; 
-    font-size: 2.5rem;
+header h1 {
+  padding: 5px;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
 }
-/*section*/
-section{
+/*abstand header*/
+.pseudo {
+    height: 130px;
+}
+
+/*question-section*/
+main {
+  color: black;
+  padding: 15px;
+}
+.question {
+    display: flex;
+    flex-direction: column;
     color: black;
+    background-color: white;
+    font-family: 'roboto', sans-serif;
+    box-shadow: rgba(252, 245, 110, 0.11);
+    margin: 15px 0;
+    padding: 15px;
+
+}
+main i{
+    color:white;
+}
+.question button{
+    background-color: rgba(252, 245, 110, 0.11);
+    box-shadow: white;
+    border-radius: 5px;
+    margin: auto;
+    font-size: 2.rem;
+}
+.question ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    gap: 15px;
+    width: 75%;
+}
+.question li{
+    border: 1px solid black
 }
 /*navbar*/
-nav{
-    background-color: limegreen;
-    position: fixed;
-    width: 100%;
-    border-radius: 5px;
-    left: 0;
-    bottom: 0;
-    text-align: center;
+nav {
+  background-color: limegreen;
+  position: fixed;
+  width: 100%;
+  border-radius: 5px;
+  left: 0;
+  bottom: 0;
+  text-align: center;
 }
-nav ul{
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    width: 80%;
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 80%;
 }
-nav li{
-    flex-grow: 1;
-    font-size: 2rem;
-    width: 100%;
+@media screen and (min-width: 400px) {
+  nav ul {
+    width: 93%;
+  }
+  nav li {
+    font-size: 3rem;
+  }
 }
-nav li :hover{
-    color: yellow;
+nav li {
+  flex-grow: 1;
+  font-size: 2rem;
+  width: 100%;
+}
+nav li :hover {
+  color: yellow;
 }
