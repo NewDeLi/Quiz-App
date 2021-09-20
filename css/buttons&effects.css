@@ -38,6 +38,9 @@ button:hover {
   transform: scale(1.1);
   transition: background-color 0.5s, font-size 1s ease-out;
 }
+a:focus{
+  outline: 2px solid var(--focus-color);
+}
 button:focus {
   outline: 2px solid var(--focus-color);
 }
