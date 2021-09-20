@@ -1,0 +1,31 @@
+#add form {
+  padding: 2rem 4rem;
+  background: var(--container-background);
+  border: 1px dotted var(--main-color);
+  border-radius: 1rem;
+  max-width: 100%;
+}
+#add fieldset {
+  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#add input,
+#add label {
+  font-family: inherit;
+  appearance: none;
+  border-radius: 5px;
+  max-width: 100%;
+  padding: 0 auto;
+  margin: 1rem auto;
+  padding: 1rem auto;
+}
+.submit {
+  color: var(--main-color);
+  background-color: var(--body-color);
+  transition: background-color 1s;
+  width: 100%;
+}

@@ -1,0 +1,76 @@
+@import "buttons&effects.css";
+@import "token-dark-light.css";
+@import "question.css";
+@import "add.css";
+@import "profil.css";
+
+body {
+  color: var(--body-color);
+  font-size: 18px;
+  font-family: sans-serif;
+  background: var(--body-background);
+}
+@media screen and (min-width: 400px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+/*header*/
+header {
+  background: var(--fixed-background);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1;
+}
+header h1 {
+  padding: 0.1rem;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  border: 2px solid;
+  border-radius: 2rem;
+  margin: 1.5rem;
+}
+/*navbar*/
+.page {
+  display: none;
+}
+.page.current {
+  display: block;
+}
+nav {
+  background: var(--fixed-background);
+  position: fixed;
+  width: 100%;
+  border-radius: 5px;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 5px;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+@media screen and (min-width: 400px) {
+  nav ul {
+    width: 93%;
+  }
+  nav li {
+    font-size: 3rem;
+  }
+}
+nav li {
+  flex-grow: 1;
+  font-size: 2rem;
+  width: 100%;
+}
+nav li :active {
+  color: var(--active-color);
+}

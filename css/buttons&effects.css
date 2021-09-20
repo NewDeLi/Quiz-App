@@ -1,0 +1,59 @@
+/*do i need .current with js?*/
+.currently {
+  border: 0.2rem solid var(--a-color);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.current:hover {
+  color: var(--hover-color);
+}
+a {
+  color: var(--a-color);
+  transition: background 1s ease-in;
+}
+a:hover {
+  color: var(--hover-color);
+  background: var(--a-background);
+}
+button {
+  background-color: var(--button-color);
+  box-shadow: var(--boxshadow-color);
+  border-radius: 5px;
+  width: 100%;
+  padding: 5rem auto;
+  transition: background-color 0.5s, font-size 1s ease-out;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 0.9rem;
+  appearance: none;
+}
+button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.1);
+  font-size: 1.1rem;
+}
+.submit:hover {
+  background-color: var(--hover-color);
+  font-size: 1.25rem;
+  appearance: none;
+  transform: scale(1.1);
+  transition: background-color 0.5s, font-size 1s ease-out;
+}
+button:focus {
+  outline: 2px solid var(--focus-color);
+}
+input:focus {
+  color: var(--focus-color);
+}
+.submit:focus {
+  outline: 2px solid var(--focus-color);
+}
+button:active {
+  color: var(--active-color);
+  background: var(--a-background);
+  transition: background 1ms ease-out;
+}
+.submit:active {
+  color: var(--active-color);
+  background: var(--a-background);
+  transition: background 1ms ease-out;
+}

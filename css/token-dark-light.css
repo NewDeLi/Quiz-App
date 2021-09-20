@@ -1,0 +1,41 @@
+
+:root {
+  --fixed-background: red;
+  --body-color: white;
+  --body-background: white;
+  --a-color: white;
+  --a-background: limegreen;
+  --hover-color: yellow;
+  --active-color: white;
+  --focus-color: blue;
+  --main-color: rgba(87, 84, 84, 0.993);
+  --container-background: linear-gradient(
+    90deg,
+   rgba(0, 110, 255, 0.74) 0%,
+    rgb(166, 200, 223) 50.0%,
+    rgba(0, 110, 255, 0.74) 100%
+  );
+  --button-color: white;
+  --boxshadow-color: rgba(252, 245, 110, 0.11);
+}
+@media (prefers-color-scheme: dark) {
+  * {
+    --fixed-background-color: rgb(31, 105, 31);
+    --body-color: black;
+    --body-background-color: gray;
+    --a-color: black;
+    --a-background: linear-gradient(
+      90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 121, 30, 1) 35%,
+      rgba(247, 255, 0, 1) 100%
+    );
+    --hover-color: yellow;
+    --active-color: red;
+    --focus-color: yellow;
+    --main-color: white;
+    --container-background-color: black;
+    --button-color: gray;
+    --boxshadow-color: gray;
+  }
+}
