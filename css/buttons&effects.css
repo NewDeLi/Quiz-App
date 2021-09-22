@@ -1,10 +1,10 @@
-/*do i need .current with js?*/
+/*fix currently in js*/
 .currently {
   border: 0.2rem solid var(--a-color);
   border-radius: 10px;
   padding: 0.5rem;
 }
-.current:hover {
+.currently:hover {
   color: var(--hover-color);
 }
 a {

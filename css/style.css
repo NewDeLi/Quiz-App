@@ -9,13 +9,13 @@ body {
   font-size: 18px;
   font-family: sans-serif;
   background: var(--body-background);
+  padding: 5px;
 }
 @media screen and (min-width: 400px) {
   body {
     font-size: 2rem;
   }
 }
-
 /*header*/
 header {
   background: var(--fixed-background);
@@ -33,16 +33,38 @@ header h1 {
   letter-spacing: 5px;
   border: 2px solid;
   border-radius: 2rem;
-  margin: 1.5rem;
+  margin: 1rem 3rem;
 }
-
-/*navbar*/
+/*sections and distance*/
+section {
+  color: var(--main-color);
+  padding: 0 auto;
+  margin: 0 auto;
+  width: 90%;
+}
+.distance-header{
+  margin-bottom: 5rem;
+  height: 1rem;
+  background-color: hotpink;
+}
+.distance-nav{
+  margin-top: 5rem;
+  height: 1rem;
+  background-color: hotpink;
+}
 .page {
   display: none;
 }
 .page.current {
   display: block;
 }
+.answer{
+  display: none;
+}
+.answer.show{
+  display:block;
+}
+/*navbar*/
 nav {
   background: var(--fixed-background);
   position: fixed;
@@ -75,3 +97,4 @@ nav li {
 nav li :active {
   color: var(--active-color);
 }
+

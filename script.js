@@ -1,68 +1,107 @@
-/*variables*/
-const home = document.querySelector("#home");
-const bookmark = document.querySelector("#bookmark");
-const add = document.querySelector("#add");
-const profil = document.querySelector("#profil");
-const section = document.querySelector('.section');
+/*navigation one page*/
+const pages = document.querySelectorAll(".page");
+const links = document.querySelectorAll("nav a");
 
-const nav_home = document.querySelector(".link-home");
-const nav_bookmark = document.querySelector(".link-bookmark");
-const nav_add = document.querySelector(".link-add");
-const nav_profil = document.querySelector(".link-profil");
-/*page.current*/
-nav_home.addEventListener("click", () => {
-  bookmark.classList.remove("current");
-  add.classList.remove("current");
-  profil.classList.remove("current");
-  home.classList.add("current");
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    pages.forEach((page) => {
+      page.classList.remove("current");
+    });
+    const attribute = link.getAttribute("href");
+    const nextPage = document.querySelector(attribute);
+    nextPage.classList.add("current");
+  });
 });
-
-nav_bookmark.addEventListener("click", () => {
-  home.classList.remove("current");
-  add.classList.remove("current");
-  profil.classList.remove("current");
-  bookmark.classList.add("current");
-});
-
-nav_add.addEventListener("click", () => {
-  home.classList.remove("current");
-  bookmark.classList.remove("current");
-  profil.classList.remove("current");
-  add.classList.add("current");
-});
-
-nav_profil.addEventListener("click", () => {
-  home.classList.remove("current");
-  bookmark.classList.remove("current");
-  add.classList.remove("current");
-  profil.classList.add("current");
-});
-
 /*currently*/
-nav_home.addEventListener("click", () => {
-  nav_bookmark.classList.remove("currently");
-  nav_add.classList.remove("currently");
-  nav_profil.classList.remove("currently");
-  nav_home.classList.add("currently");
+const home = document.querySelector('.link-home');
+const bookmark = document.querySelector('.link-bookmark')
+const add = document.querySelector(".link-add");
+const profil = document.querySelector(".link-profil");
+
+
+home.addEventListener("click", () => {
+  bookmark.classList.remove('currently');
+  add.classList.remove('currently');
+  profil.classList.remove('currently');
+  home.classList.add('currently');
+});
+bookmark.addEventListener("click", () => {
+  home.classList.remove("currently");
+  add.classList.remove("currently");
+  profil.classList.remove("currently");
+  bookmark.classList.add("currently");
+});
+add.addEventListener("click", () => {
+  bookmark.classList.remove("currently");
+  home.classList.remove("currently");
+  profil.classList.remove("currently");
+  add.classList.add("currently");
+});
+profil.addEventListener("click", () => {
+  bookmark.classList.remove("currently");
+  add.classList.remove("currently");
+  home.classList.remove("currently");
+  profil.classList.add("currently");
 });
 
-nav_bookmark.addEventListener("click", () => {
-  nav_home.classList.remove("currently");
-  nav_add.classList.remove("currently");
-  nav_profil.classList.remove("currently");
-  nav_bookmark.classList.add("currently");
+
+
+/*bookmark */
+const cards = document.querySelectorAll(".question");
+
+cards.forEach((card) => {
+  const linksBookmark = card.querySelector("a");
+  const bookmarks = card.querySelector("img");
+  
+  linksBookmark.addEventListener("click", () => {
+    bookmarks.classList.toggle("color");
+  })
+})
+/*and show answer*/
+cards.forEach((card) => {
+  const buttonList = card.querySelector("button");
+  const answerList = card.querySelector(".answer");
+
+  buttonList.addEventListener("click", () => {
+    answerList.classList.toggle("show"); 
+  });
 });
 
-nav_add.addEventListener("click", () => {
-  nav_home.classList.remove("currently");
-  nav_bookmark.classList.remove("currently");
-  nav_profil.classList.remove("currently");
-  nav_add.classList.add("currently");
-});
+/*submit formular object*/
+const form = document.querySelector("form");
+let addQ = {};
 
-nav_profil.addEventListener("click", () => {
-  nav_home.classList.remove("currently");
-  nav_bookmark.classList.remove("currently");
-  nav_add.classList.remove("currently");
-  nav_profil.classList.add("currently");
+form.addEventListener("submit", (event) => {
+  addQ = {
+    question: form.elements.question.value,
+    answer: form.elements.answer.value,
+    tags: form.elements.tags.value,
+  };
+
+  console.log(addQ);
+  event.preventDefault();
+});
+form.addEventListener("submit", (event) => {
+  addQ = {
+    question: form.elements.question.value,
+    answer: form.elements.answer.value,
+    tags: form.elements.tags.value,
+  };
+
+  console.log(addQ);
+  event.preventDefault();
+});
+//submit formular array
+const array = [];
+
+form.addEventListener("submit", (event) => {
+  array.push(
+    (addQ = {
+      question: form.elements.question.value,
+      answer: form.elements.answer.value,
+      tags: form.elements.tags.value,
+    })
+  );
+  console.log(array);
+  event.preventDefault();
 });
