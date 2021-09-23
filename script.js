@@ -46,31 +46,9 @@ profil.addEventListener("click", () => {
 
 
 
-/*bookmark */
-const cards = document.querySelectorAll(".question");
-
-cards.forEach((card) => {
-  const linksBookmark = card.querySelector("a");
-  const bookmarks = card.querySelector("img");
-  
-  linksBookmark.addEventListener("click", () => {
-    bookmarks.classList.toggle("color");
-  })
-})
-/*and show answer*/
-cards.forEach((card) => {
-  const buttonList = card.querySelector("button");
-  const answerList = card.querySelector(".answer");
-
-  buttonList.addEventListener("click", () => {
-    answerList.classList.toggle("show"); 
-  });
-});
-
-/*submit formular object*/
 const form = document.querySelector("form");
 let addQ = {};
-
+/*submit formular object
 form.addEventListener("submit", (event) => {
   addQ = {
     question: form.elements.question.value,
@@ -80,28 +58,85 @@ form.addEventListener("submit", (event) => {
 
   console.log(addQ);
   event.preventDefault();
-});
-form.addEventListener("submit", (event) => {
-  addQ = {
-    question: form.elements.question.value,
-    answer: form.elements.answer.value,
-    tags: form.elements.tags.value,
-  };
-
-  console.log(addQ);
-  event.preventDefault();
-});
+});*/
 //submit formular array
-const array = [];
+const array = [
+  {
+    question: "ist das eine frage?",
+    answer: "ja das ist die antwort",
+    tags: "a",
+  }
+];
 
 form.addEventListener("submit", (event) => {
   array.push(
-    (addQ = {
+    {
       question: form.elements.question.value,
       answer: form.elements.answer.value,
       tags: form.elements.tags.value,
-    })
+    }
   );
   console.log(array);
   event.preventDefault();
+  renderQuestions();
 });
+
+/*inner html*/
+
+const createQuestionsHtml=(array) => {
+  let html = "";
+  array.forEach((wurst) => {
+    html =
+      html +
+      `
+    <container class="question">
+    <div class="bookmark-icon"></div>
+          <h3>Question</h3>
+          <p class="distance2h3">
+            ${wurst.question}
+          </p>
+          <button ><p>Show Answer</p></button>
+          <p class="answer">
+            ${wurst.answer}
+          </p>
+          <ul>
+            <li>${wurst.tags}</li>
+            <li>${wurst.tags}</li>
+            <li>${wurst.tags}</li>
+            <li>${wurst.tags}</li>
+          </ul>
+    </container>      
+          `;
+  });
+  console.log(html);
+  return html;
+};
+console.log(createQuestionsHtml(array));
+
+const renderQuestions = () => {
+  const questionHtml = createQuestionsHtml(array);
+  const questionsContainer = document.querySelector('#home');
+
+  questionsContainer.innerHTML = questionHtml;
+  /*bookmark and show answer*/
+  const cards = document.querySelectorAll(".question");
+
+  cards.forEach((card) => {
+    const bookmarks = card.querySelector(".bookmark-icon");
+    console.log(card)
+    bookmarks.addEventListener("click", () => {
+      bookmarks.classList.toggle("bookmark-icon-color");
+    });
+  });
+
+  cards.forEach((card) => {
+    const buttonList = card.querySelector("button");
+    const answerList = card.querySelector(".answer");
+
+    buttonList.addEventListener("click", () => {
+      answerList.classList.toggle("show");
+    });
+  });
+};
+
+renderQuestions();
