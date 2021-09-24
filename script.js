@@ -47,8 +47,8 @@ profil.addEventListener("click", () => {
 
 
 const form = document.querySelector("form");
-let addQ = {};
-/*submit formular object
+/*let addQ = {};
+submit formular object
 form.addEventListener("submit", (event) => {
   addQ = {
     question: form.elements.question.value,
@@ -65,6 +65,7 @@ const array = [
     question: "ist das eine frage?",
     answer: "ja das ist die antwort",
     tags: "a",
+    isBookmarked: false,
   }
 ];
 
@@ -74,23 +75,44 @@ form.addEventListener("submit", (event) => {
       question: form.elements.question.value,
       answer: form.elements.answer.value,
       tags: form.elements.tags.value,
+      isBookmarked: false,
     }
   );
-  console.log(array);
   event.preventDefault();
   renderQuestions();
 });
 
 /*inner html*/
 
-const createQuestionsHtml=(array) => {
+const createQuestionsHtml = (array) => {
+  //split tags section
   let html = "";
   array.forEach((wurst) => {
+     const splitTags = (stringToSplit, seperator) => {
+       const arrayTags = stringToSplit.split(seperator); 
+       let taghtml = "";
+       console.log(arrayTags);
+       arrayTags.forEach((arrayTag) => {
+         taghtml =
+           taghtml +
+           `
+            <li>${arrayTag}</li>
+      `;
+       });
+       return taghtml;
+     };
+     const space = ",";
+    const tagHtml = splitTags(wurst.tags, space);
+//end
+//isBookmarked section
+    const bookmarkedClass = array.isBookmarked ? " bookmark-icon-color--active" : "";
+
     html =
       html +
       `
+    <div class="distance-header"></div>
     <container class="question">
-    <div class="bookmark-icon"></div>
+    <div class="bookmark-icon${bookmarkedClass}"></div>
           <h3>Question</h3>
           <p class="distance2h3">
             ${wurst.question}
@@ -99,19 +121,18 @@ const createQuestionsHtml=(array) => {
           <p class="answer">
             ${wurst.answer}
           </p>
+          
           <ul>
-            <li>${wurst.tags}</li>
-            <li>${wurst.tags}</li>
-            <li>${wurst.tags}</li>
-            <li>${wurst.tags}</li>
+          ${tagHtml}
           </ul>
-    </container>      
+    </container>
+    <div class="distance-nav"></div>    
           `;
   });
-  console.log(html);
-  return html;
+
+  return html
 };
-console.log(createQuestionsHtml(array));
+
 
 const renderQuestions = () => {
   const questionHtml = createQuestionsHtml(array);
@@ -121,22 +142,26 @@ const renderQuestions = () => {
   /*bookmark and show answer*/
   const cards = document.querySelectorAll(".question");
 
-  cards.forEach((card) => {
+  cards.forEach((card, index) => {
     const bookmarks = card.querySelector(".bookmark-icon");
     console.log(card)
     bookmarks.addEventListener("click", () => {
       bookmarks.classList.toggle("bookmark-icon-color");
+      console.log(index);
     });
   });
 
-  cards.forEach((card) => {
+  cards.forEach((card, index) => {
     const buttonList = card.querySelector("button");
     const answerList = card.querySelector(".answer");
 
     buttonList.addEventListener("click", () => {
       answerList.classList.toggle("show");
+      console.log(index);
     });
   });
 };
 
 renderQuestions();
+
+

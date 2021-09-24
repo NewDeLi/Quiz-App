@@ -45,12 +45,10 @@ section {
 .distance-header{
   margin-bottom: 5rem;
   height: 1rem;
-  background-color: hotpink;
 }
 .distance-nav{
   margin-top: 5rem;
   height: 1rem;
-  background-color: hotpink;
 }
 .page {
   display: none;
