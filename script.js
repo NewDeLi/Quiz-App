@@ -13,17 +13,16 @@ links.forEach((link) => {
   });
 });
 /*currently*/
-const home = document.querySelector('.link-home');
-const bookmark = document.querySelector('.link-bookmark')
+const home = document.querySelector(".link-home");
+const bookmark = document.querySelector(".link-bookmark");
 const add = document.querySelector(".link-add");
 const profil = document.querySelector(".link-profil");
 
-
 home.addEventListener("click", () => {
-  bookmark.classList.remove('currently');
-  add.classList.remove('currently');
-  profil.classList.remove('currently');
-  home.classList.add('currently');
+  bookmark.classList.remove("currently");
+  add.classList.remove("currently");
+  profil.classList.remove("currently");
+  home.classList.add("currently");
 });
 bookmark.addEventListener("click", () => {
   home.classList.remove("currently");
@@ -45,41 +44,36 @@ profil.addEventListener("click", () => {
 });
 
 
+//get array from local storage
+const getQuestions = () => {
+  let array;
 
+  if (localStorage.getItem("array")) {
+    array = JSON.parse(localStorage.getItem("array"));
+  } else {
+    array = []; // <-- initial value goes here
+    localStorage.setItem("array", JSON.stringify(array));
+  }
+  return array;
+};
+//set questions
+const setQuestions = (newQuestions) => {
+  localStorage.setItem("array", JSON.stringify(newQuestions));
+};
+//submit formular array
 const form = document.querySelector("form");
-/*let addQ = {};
-submit formular object
 form.addEventListener("submit", (event) => {
-  addQ = {
+  event.preventDefault();
+  array = getQuestions();
+  array.push({
     question: form.elements.question.value,
     answer: form.elements.answer.value,
     tags: form.elements.tags.value,
-  };
-
-  console.log(addQ);
-  event.preventDefault();
-});*/
-//submit formular array
-const array = [
-  {
-    question: "ist das eine frage?",
-    answer: "ja das ist die antwort",
-    tags: "a",
     isBookmarked: false,
-  }
-];
-
-form.addEventListener("submit", (event) => {
-  array.push(
-    {
-      question: form.elements.question.value,
-      answer: form.elements.answer.value,
-      tags: form.elements.tags.value,
-      isBookmarked: false,
-    }
-  );
-  event.preventDefault();
-  renderQuestions();
+  });
+  
+  setQuestions(array);
+  renderQuestions(array);
 });
 
 /*inner html*/
@@ -87,37 +81,36 @@ form.addEventListener("submit", (event) => {
 const createQuestionsHtml = (array) => {
   //split tags section
   let html = "";
-  array.forEach((wurst) => {
-     const splitTags = (stringToSplit, seperator) => {
-       const arrayTags = stringToSplit.split(seperator); 
-       let taghtml = "";
-       console.log(arrayTags);
-       arrayTags.forEach((arrayTag) => {
-         taghtml =
-           taghtml +
-           `
+  array.forEach((wurst, index) => {
+    const splitTags = (stringToSplit, seperator) => {
+      const arrayTags = stringToSplit.split(seperator);
+      let taghtml = "";
+      console.log(arrayTags);
+      arrayTags.forEach((arrayTag) => {
+        taghtml =
+          taghtml +
+          `
             <li>${arrayTag}</li>
       `;
-       });
-       return taghtml;
-     };
-     const space = ",";
+      });
+      return taghtml;
+    };
+    const space = ",";
     const tagHtml = splitTags(wurst.tags, space);
-//end
-//isBookmarked section
-    const bookmarkedClass = array.isBookmarked ? " bookmark-icon-color--active" : "";
+    //isBookmarked section
+    const bookmarkedClass = wurst.isBookmarked ? " bookmark-icon-color" : "";
 
     html =
       html +
       `
     <div class="distance-header"></div>
     <container class="question">
-    <div class="bookmark-icon${bookmarkedClass}"></div>
+    <div class="bookmark-icon${bookmarkedClass}" data-index="${index}"></div>
           <h3>Question</h3>
           <p class="distance2h3">
             ${wurst.question}
           </p>
-          <button ><p>Show Answer</p></button>
+          <button data-index="${index}"><p>Show Answer</p></button>
           <p class="answer">
             ${wurst.answer}
           </p>
@@ -130,26 +123,27 @@ const createQuestionsHtml = (array) => {
           `;
   });
 
-  return html
+  return html;
 };
-
-
+//render question cards
 const renderQuestions = () => {
-  const questionHtml = createQuestionsHtml(array);
-  const questionsContainer = document.querySelector('#home');
 
+  array = getQuestions();
+
+  const questionHtml = createQuestionsHtml(array);
+  const questionsContainer = document.querySelector("#home");//oder .question?
   questionsContainer.innerHTML = questionHtml;
+
+  /*bookmarked questions filter*/
+  const bookmarkedQuestions = array.filter((wurst) => {
+    return wurst.isBookmarked == true;
+  });
+  const bookmarkedQuestionsHtml = createQuestionsHtml(bookmarkedQuestions);
+  const bookmarkedQuestionsContainer = document.querySelector("#bookmark");
+  bookmarkedQuestionsContainer.innerHTML = bookmarkedQuestionsHtml;
+
   /*bookmark and show answer*/
   const cards = document.querySelectorAll(".question");
-
-  cards.forEach((card, index) => {
-    const bookmarks = card.querySelector(".bookmark-icon");
-    console.log(card)
-    bookmarks.addEventListener("click", () => {
-      bookmarks.classList.toggle("bookmark-icon-color");
-      console.log(index);
-    });
-  });
 
   cards.forEach((card, index) => {
     const buttonList = card.querySelector("button");
@@ -160,8 +154,21 @@ const renderQuestions = () => {
       console.log(index);
     });
   });
+  cards.forEach((card, index) => {
+    const bookmarks = card.querySelector(".bookmark-icon");
+    console.log(card);
+    bookmarks.addEventListener("click", () => {
+      bookmarks.classList.toggle("bookmark-icon-color");
+
+      const index = bookmarks.dataset.index;
+      array[index].isBookmarked = !array[index].isBookmarked;
+      console.log(index);
+
+      setQuestions(array);
+      renderQuestions();
+      
+    });
+  });
 };
 
 renderQuestions();
-
-
