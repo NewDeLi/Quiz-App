@@ -12,10 +12,12 @@
   gap: 1rem;
   position: relative;
   margin-bottom: 8rem;
+  font-size: 1rem;
 }
 .profilbild img {
-  border-radius: 50%;
-  width: 50%;
+  border-radius: 5px;
+  width: 20vw;
+  height: 20vh;
 }
 .profilbild h3 {
   align-self: center;
@@ -27,26 +29,20 @@
     align-items: center;
     padding: 2.5rem;
   }
-  .profilbild img {
-    max-width: 100%;
-    width: 25%;
-  }
-  .profilbild h3 {
-    font-size: 2rem;
-  }
 }
-.profilbild:before {
-  content: '"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut"';
+.profilbild:after {
+  content: '"Lorem ipsum dolor sit amet, consetetur  ut consetetur"';
   font-style: italic;
   background: var(--container-background);
   position: absolute;
-  bottom: -8.5rem;
-  right: -1.75rem;
-  width: 100%;
-  padding: 1.75rem;
-  border: 1px dotted var(--main-color);
-  border-radius: 1rem;
-  
+  bottom: -36vh;
+  right: 15vw;
+  width: 50%;
+  height: 50%;
+  margin: 6rem auto;
+  padding: 2rem;
+  border: 1px solid black;
+  border-radius: 100%;
 }
 .skills {
   display: flex;

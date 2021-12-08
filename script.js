@@ -43,7 +43,6 @@ profil.addEventListener("click", () => {
   profil.classList.add("currently");
 });
 
-
 //get array from local storage
 const getQuestions = () => {
   let array;
@@ -71,7 +70,7 @@ form.addEventListener("submit", (event) => {
     tags: form.elements.tags.value,
     isBookmarked: false,
   });
-  
+
   setQuestions(array);
   renderQuestions(array);
 });
@@ -103,23 +102,20 @@ const createQuestionsHtml = (array) => {
     html =
       html +
       `
-    <div class="distance-header"></div>
     <container class="question">
     <div class="bookmark-icon${bookmarkedClass}" data-index="${index}"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
+          <p>Question:</p>
+          <p>
             ${wurst.question}
           </p>
-          <button data-index="${index}"><p>Show Answer</p></button>
+          <button data-index="${index}">Show Answer</button>
           <p class="answer">
             ${wurst.answer}
           </p>
-          
           <ul>
           ${tagHtml}
           </ul>
-    </container>
-    <div class="distance-nav"></div>    
+    </container> 
           `;
   });
 
@@ -127,11 +123,10 @@ const createQuestionsHtml = (array) => {
 };
 //render question cards
 const renderQuestions = () => {
-
   array = getQuestions();
 
   const questionHtml = createQuestionsHtml(array);
-  const questionsContainer = document.querySelector("#home");//oder .question?
+  const questionsContainer = document.querySelector("#home"); //oder .question?
   questionsContainer.innerHTML = questionHtml;
 
   /*bookmarked questions filter*/
@@ -166,7 +161,6 @@ const renderQuestions = () => {
 
       setQuestions(array);
       renderQuestions();
-      
     });
   });
 };

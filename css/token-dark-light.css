@@ -1,20 +1,24 @@
-
 :root {
-  --fixed-background: red;
-  --body-color: white;
-  --body-background: white;
+  --fixed-background: rgb(119, 194, 255);
+  --body-color: black;
+  --body-background: rgb(166, 200, 223);
   --a-color: white;
   --a-background: limegreen;
-  --hover-color: yellow;
+  --hover-color: rgb(119, 194, 255);
   --active-color: white;
-  --focus-color: blue;
+  --focus-color: white;
   --main-color: rgba(87, 84, 84, 0.993);
-  --container-background: linear-gradient(
+  --container-background: /*linear-gradient(
     90deg,
-   rgba(0, 110, 255, 0.74) 0%,
-    rgb(166, 200, 223) 50.0%,
-    rgba(0, 110, 255, 0.74) 100%
+    rgb(119, 194, 255) 0%,
+    rgb(191, 219, 245); 50.0%,
+    rgb(119, 194, 255) 100%
+  )*/ rgb(
+    191,
+    219,
+    245
   );
+
   --button-color: white;
   --boxshadow-color: rgba(252, 245, 110, 0.11);
 }
@@ -30,12 +34,12 @@
       rgba(9, 121, 30, 1) 35%,
       rgba(247, 255, 0, 1) 100%
     );
-    --hover-color: yellow;
-    --active-color: red;
-    --focus-color: yellow;
-    --main-color: white;
+    --hover-color: rgb(119, 194, 255);
+    --active-color: white;
+    --focus-color: white;
+    --main-color: black;
     --container-background-color: black;
-    --button-color: gray;
+    --button-color: rgb(166, 200, 223);
     --boxshadow-color: gray;
   }
 }

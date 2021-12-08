@@ -16,33 +16,36 @@ a:hover {
   background: var(--a-background);
 }
 button {
+  all: unset;
+  text-align: center;
+  font-size: 0.8rem;
   background-color: var(--button-color);
   box-shadow: var(--boxshadow-color);
-  border-radius: 5px;
-  width: 100%;
-  padding: 5rem auto;
+  border-radius: 15px;
+  width: 50%;
+  margin: 2rem;
+  padding: 1rem;
   transition: background-color 0.5s, font-size 1s ease-out;
-  font-family: 'Noto Sans Display', sans-serif;
-  font-size: 0.9rem;
+  font-family: "Noto Sans Display", sans-serif;
   appearance: none;
 }
 button:hover {
   background-color: var(--hover-color);
   transform: scale(1.1);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .submit:hover {
   background-color: var(--hover-color);
-  font-size: 1.25rem;
+  font-size: 1rem;
   appearance: none;
   transform: scale(1.1);
   transition: background-color 0.5s, font-size 1s ease-out;
 }
-a:focus{
-  outline: 2px solid var(--focus-color);
+a:focus {
+  outline: 1px solid var(--focus-color);
 }
 button:focus {
-  outline: 2px solid var(--focus-color);
+  outline: 1px solid var(--focus-color);
 }
 input:focus {
   color: var(--focus-color);
@@ -52,11 +55,5 @@ input:focus {
 }
 button:active {
   color: var(--active-color);
-  background: var(--a-background);
-  transition: background 1ms ease-out;
-}
-.submit:active {
-  color: var(--active-color);
-  background: var(--a-background);
   transition: background 1ms ease-out;
 }

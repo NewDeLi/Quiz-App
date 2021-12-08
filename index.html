@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Quiz Cards</title>
     <!--css-->
     <link rel="stylesheet" href="./css/style.css" />
     <!--fontawesome-->
@@ -20,130 +20,22 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <header>
-      <h1>¿Quizzit!</h1>
+      <h1>Quiz Cards</h1>
     </header>
     <main>
-      <section class="page current" id="home">
-        <div class="distance-header"></div>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <div class="distance-nav"></div>
-      </section>
-      <section class="page" id="bookmark">
-        <div class="distance-header"></div>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut?
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut?
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <container class="question">
-          <div class="bookmark-icon"></div>
-          <h3>Question</h3>
-          <p class="distance2h3">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut?
-          </p>
-          <button ><p>Show Answer</p></button>
-          <p class="answer">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut
-          </p>
-          <ul>
-            <li>A</li>
-            <li>B</li>
-            <li>C</li>
-            <li>D</li>
-          </ul>
-        </container>
-        <div class="distance-nav"></div>
-      </section>
+      <div class="distance-header"></div>
+      <section class="page current" id="home"></section>
+      <section class="page" id="bookmark"></section>
       <section class="page" id="add">
-        <div class="distance-header"></div>
         <form>
           <fieldset>
-            <legend><h3>Add new card</h3></legend>
-            <label for="question">Add question:</label><br />
+            <legend>
+              <p>New card</p>
+            </legend>
+            <label for="question">Question</label><br />
             <textarea
               type="text"
               name="question"
@@ -151,7 +43,7 @@
               placeholder="add text here"
             ></textarea
             ><br />
-            <label for="answer">Add answer:</label><br />
+            <label for="answer">Answer</label><br />
             <textarea
               type="text"
               name="answer"
@@ -159,20 +51,18 @@
               placeholder="add text here"
             ></textarea
             ><br />
-            <label for="tags">Add tags:</label><br />
+            <label for="tags">Tags</label><br />
             <input
               type="text"
               name="tags"
               id="tags"
-              placeholder="add tags here"
+              placeholder="tag, tag,..."
             /><br />
             <input type="submit" value="Submit" class="submit" />
           </fieldset>
         </form>
-        <div class="distance-nav"></div>
       </section>
       <section class="page" id="profil">
-        <div class="distance-header"></div>
         <container class="profilbild">
           <img src="./images/IMG_9027.jpg" alt="picture of me" />
           <h3>NewDeLi</h3>
@@ -187,10 +77,12 @@
           </ul>
         </container>
         <container class="logout">
-          <button><p>Log Out</p></button>
+          <button>
+            <p>Log Out</p>
+          </button>
         </container>
-        <div class="distance-nav"></div>
       </section>
+      <div class="distance-nav"></div>
     </main>
     <nav>
       <ul>
