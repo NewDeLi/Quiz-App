@@ -12,7 +12,6 @@ a {
   transition: background 1s ease-in;
 }
 a:hover {
-  color: var(--hover-color);
   background: var(--a-background);
 }
 button {

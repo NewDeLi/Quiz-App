@@ -1,45 +1,30 @@
 :root {
-  --fixed-background: rgb(119, 194, 255);
-  --body-color: black;
+  --fixed-background: rgb(5, 101, 180);
+  --body-color: white;
   --body-background: rgb(166, 200, 223);
   --a-color: white;
-  --a-background: limegreen;
+  --a-background: rgb(191, 219, 245);
   --hover-color: rgb(119, 194, 255);
-  --active-color: white;
-  --focus-color: white;
-  --main-color: rgba(87, 84, 84, 0.993);
-  --container-background: /*linear-gradient(
-    90deg,
-    rgb(119, 194, 255) 0%,
-    rgb(191, 219, 245); 50.0%,
-    rgb(119, 194, 255) 100%
-  )*/ rgb(
-    191,
-    219,
-    245
-  );
-
-  --button-color: white;
-  --boxshadow-color: rgba(252, 245, 110, 0.11);
+  --active-color: black;
+  --focus-color: black;
+  --main-color: rgba(100, 99, 99, 0.979);
+  --container-background: rgb(191, 219, 245);
+  --button-color: rgb(166, 200, 223);
+  --boxshadow-color: rgb(166, 200, 223);
 }
 @media (prefers-color-scheme: dark) {
   * {
-    --fixed-background-color: rgb(31, 105, 31);
+    --fixed-background: rgb(125, 174, 214);
     --body-color: black;
-    --body-background-color: gray;
+    --body-background-color: rgb(166, 200, 223);
     --a-color: black;
-    --a-background: linear-gradient(
-      90deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(9, 121, 30, 1) 35%,
-      rgba(247, 255, 0, 1) 100%
-    );
+    --a-background: rgb(191, 219, 245);
     --hover-color: rgb(119, 194, 255);
     --active-color: white;
     --focus-color: white;
-    --main-color: black;
-    --container-background-color: black;
+    --main-color: rgba(100, 99, 99, 0.979);
+    --container-background: rgb(191, 219, 245);
     --button-color: rgb(166, 200, 223);
-    --boxshadow-color: gray;
+    --boxshadow-color: rgb(166, 200, 223);
   }
 }

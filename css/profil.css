@@ -1,62 +1,79 @@
+#profil {
+  /*fix navigation bug*/
+  position: sticky;
+  top: 17.5vh;
+  left: 0;
+  right: 0;
+}
 .profilbild,
 .skills {
   background: var(--container-background);
   padding: 15px;
-  margin: 1.5rem;
+  max-width: 80%;
+  margin: 5vh auto;
   box-shadow: var(--boxshadow-color);
   border-radius: 1rem;
 }
 .profilbild {
   display: flex;
-  max-width: 100%;
   gap: 1rem;
   position: relative;
-  margin-bottom: 8rem;
-  font-size: 1rem;
+}
+@media screen and (min-width: 400px) {
+  .profilbild,
+  .skills {
+    max-width: 50%;
+  }
 }
 .profilbild img {
   border-radius: 5px;
-  width: 20vw;
+  width: 50%;
   height: 20vh;
 }
-.profilbild h3 {
-  align-self: center;
-}
 @media screen and (min-width: 400px) {
-  .profilbild {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5rem;
+  .profilbild img {
+    height: 50vh;
   }
 }
-.profilbild:after {
+.profilbild h3 {
+  align-self: baseline;
+}
+.profilbild h3:after {
   content: '"Lorem ipsum dolor sit amet, consetetur  ut consetetur"';
   font-style: italic;
+  font-size: 0.8rem;
   background: var(--container-background);
   position: absolute;
-  bottom: -36vh;
-  right: 15vw;
-  width: 50%;
-  height: 50%;
-  margin: 6rem auto;
-  padding: 2rem;
-  border: 1px solid black;
-  border-radius: 100%;
+  top: 10vh;
+  right: 4vw;
+  width: 40%;
+  border: 2px solid var(--body-background);
+  border-radius: 5px;
+}
+@media screen and (min-width: 400px) {
+  .profilbild h3:after {
+    font-size: 1rem;
+  }
 }
 .skills {
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+@media screen and (min-width: 400px) {
+  .skills {
+    max-width: 50%;
+  }
 }
 .skills h3 {
   text-align: center;
+  margin: 1rem;
 }
 .skills ul {
   display: flex;
   justify-content: center;
   list-style: none;
   gap: 2rem;
-  padding: 0;
 }
 .skills li {
   position: relative;
@@ -67,4 +84,7 @@
   position: absolute;
   right: 1rem;
   bottom: 0.01rem;
+}
+.skills button {
+  margin: 2rem auto;
 }

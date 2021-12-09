@@ -39,6 +39,7 @@ header h1 {
   border-radius: 10px;
   width: 50%;
   margin: 2vh auto;
+  position: relative;
 }
 /*sections and distance*/
 section {

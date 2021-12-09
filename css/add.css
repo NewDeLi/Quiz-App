@@ -1,14 +1,19 @@
 #add fieldset {
   all: unset;
   background: var(--container-background);
-  max-width: 50%;
-  margin: 0 auto;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
+  max-width: 80%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 400px) {
+  #add fieldset {
+    max-width: 50%;
+    font-size: 1rem;
+  }
 }
 #add legend {
   visibility: hidden;
