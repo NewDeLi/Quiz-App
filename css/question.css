@@ -43,7 +43,7 @@
   animation: bounce 2s;
   transform-origin: center bottom;
   color: black;
-  background-image: url("/images/bookmark_black_48dp.svg");
+  background-image: url("/images/bookmark_add_black_48dp.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
